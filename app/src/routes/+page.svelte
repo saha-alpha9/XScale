@@ -8,6 +8,7 @@
     let nextPageButton = false;
     let nextButtonClicked = false;
     let nextPageButton2 = false;
+    let numRows = 1;
 
 
     function generateTable() {
@@ -58,6 +59,14 @@
 
         // additionalTables = [...additionalTables, pricPosTable];
         nextPageButton = true;
+    }
+
+    function goToP3() {
+        nextPageButton2 = true;
+    }
+
+    function addRows() {
+        numRows += 1;
     }
 
 </script>
@@ -329,16 +338,45 @@
 
 
 {#if nextButtonClicked && nextPageButton && !nextPageButton2}
-<button type="button">P3</button>
+<button type="button" on:click={goToP3}>P3</button>
 {/if}
 
 {#if nextPageButton2}
 <h2>Test the System</h2>
 <ol>
     <li>Review the positioning and pricing definition.</li>
-    <li>Refine the single sentence that defines your company’s offering.</li>
+    <li>Refine the single sentence that defines your company$’s offering.</li>
     <li>Click the "Go To App" button to proceed and finalize your goals and strategies.</li>
 </ol>
+
+<div style="margin-top: 40px;"></div> <!-- Add space here -->
+
+<!-- <div style="display: flex; align-items: center;">
+    <div style="width: 20px; height: 20px; background-color: red; border-radius: 50%; margin-right: 10px;"></div>
+    <p>Pointer to the table:</p>
+</div> -->
+
+<table>
+    <tr>
+      <th>Conditions to be tested</th>
+      <th>Tests to be conducted</th>
+      <th>Test Result</th>
+      <th>Observations/Remarks</th>
+    </tr>
+    {#each Array(numRows) as _, rowIndex}
+        <tr>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+        </tr>
+  {/each}
+    <!-- Add more rows as needed -->
+</table>
+
+<!-- Button to add more rows -->
+<button type="button" on:click={addRows}>Add Row</button>
+
 {/if}
 
 
