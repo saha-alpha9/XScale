@@ -5,8 +5,9 @@
     let competitorData = [];
     let additionalTables = [];
     let tableData = [];
-    let showNextButton = true;
+    let nextPageButton = false;
     let nextButtonClicked = false;
+    let nextPageButton2 = false;
 
 
     function generateTable() {
@@ -42,21 +43,21 @@
 
             additionalTables = [...additionalTables, compitTableData];
 
-            showNextButton = false;
             nextButtonClicked = true;
         }
     }
 
-    function createPosPricTable() {
-        const posPricTable = Array(2).fill(0).map((_, rowIndex) => ({
+    function createPricPosTable() {
+        const pricPosTable = Array(2).fill(0).map((_,rowIndex) => ({
             id: rowIndex + 1,
-            data: Array(numCompetitors).fill(0).map((_, colIndex)=>({
+            data: Array(numCompetitors).fill(0).map((_,colIndex) => ({
                 id: colIndex + 1,
                 value: "",
             })),
         }));
 
-        additionalTables = [...additionalTables, posPricTable];
+        // additionalTables = [...additionalTables, pricPosTable];
+        nextPageButton = true;
     }
 
 </script>
@@ -278,13 +279,73 @@
 {/if}
 
 
-
-
 <div style="margin-top: 40px;"></div> <!-- Add space here -->
 
+
+<!-- P2 Button -->
+{#if !nextPageButton && nextButtonClicked}
+    <button type="button" on:click={createPricPosTable}>P2</button>
+{/if}
+
+{#if nextPageButton}
+    <h2>Pricing and Positioning</h2>
+    <table>
+        <tr>
+            <th></th>
+            {#each competitorData as competitor}
+                <th>{competitor.name}</th>
+            {/each}
+        </tr>
+        <tr>
+            <td>Price</td>
+            {#each competitorData as competitor}
+                <td><input type="text" bind:value={competitor.price}></td>
+            {/each}
+        </tr>
+        <tr>
+            <td>Position</td>
+            {#each competitorData as competitor}
+                <td><input type="text" bind:value={competitor.position} /></td>
+            {/each}
+        </tr>
+    </table>
+
+    <div style="margin-top: 30px;"></div> <!-- Add space here -->
+
+    <!-- Question 1: Define Company's Positioning and Pricing -->
+    <h2>Define Company's Positioning and Pricing</h2>
+    <textarea id="companyPositioning" rows="5" cols="80"></textarea>
+    
+    <div style="margin-top: 40px;"></div> <!-- Add space here -->
+    
+    <!-- Question 2: Arrive at a Single Sentence that Defines Company’s Offering -->
+    <h2>Arrive at a Single Sentence that Defines Company’s Offering</h2>
+    <textarea id="companyOffering" rows="5" cols="80"></textarea>
+    
+
+{/if}
+
+<div style="margin-top: 30px;"></div> <!-- Add space here -->
+
+
+{#if nextButtonClicked && nextPageButton && !nextPageButton2}
+<button type="button">P3</button>
+{/if}
+
+{#if nextPageButton2}
+<h2>Test the System</h2>
+<ol>
+    <li>Review the positioning and pricing definition.</li>
+    <li>Refine the single sentence that defines your company’s offering.</li>
+    <li>Click the "Go To App" button to proceed and finalize your goals and strategies.</li>
+</ol>
+{/if}
 
 
 </main>
 
+
 <div style="margin-top: 80px;"></div> <!-- Add space here -->
+
+
 <a href="/app">Go TO APP</a>
