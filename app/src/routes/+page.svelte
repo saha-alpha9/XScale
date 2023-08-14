@@ -1,9 +1,13 @@
 <script>
 
-    let step = 5;
+    let step = 8;
 
 
     let comapnies = [];
+    let tests = [];
+    let tests2 = [];
+    let tests3 = [];
+
     const ATTRS = [
         "Brand/Trust",
         "Reliability",
@@ -68,6 +72,46 @@
 
     addCompany();
     addCompany();
+
+
+    function addRow_5() {
+
+        tests.push({
+            conditions: "",
+            tests_to_be_cunducted: "",
+            test_result: "",
+            remarks: "",
+        });
+        tests = tests;
+        console.log(tests);
+    }
+    addRow_5();
+
+
+    function addRow_6() {
+        tests2.push({
+            whattests_to_do: "",
+            results: "",
+            pass_fail: "",
+            remarks: "",
+        });
+        tests2 = tests2;
+        console.log(tests2);
+    }
+    addRow_6();
+
+
+    function addRow_7() {
+        tests3.push({
+            whattests_to_do: "",
+            results: "",
+            pass_fail: "",
+            remarks: "",
+        });
+        tests3 = tests3;
+        console.log(tests3);
+    }
+    addRow_7();
 
 </script>
 
@@ -258,7 +302,7 @@
 </section>
 
 
-<section>
+<section class="hidden" class:active="{step === 5}">
     <h2>TEST THE SYSTEM</h2>
     <h4>Ask questions what has to be true for this to work​</h4>
     <h4>Make a list of conditions that has to be true​</h4>
@@ -266,15 +310,186 @@
 
     <table border="1">
         <thead>
+            
             <tr>
                 <th>Conditions to be Tested​</th>
                 <th>Test to be conducted​</th>
                 <th>Test Result​</th>
                 <th>Observations/Remarks</th>
             </tr>
-            
         </thead>
+        <tbody>
+            {#each tests as T}
+            <tr>
+                <td><input type="test"/></td>
+                <td><input type="test"/></td>
+                <td><input type="test"/></td>
+                <td><input type="test"/></td>
+            </tr>
+            {/each}
+        </tbody>
     </table>
+
+    <div style="margin-top: 15px"></div>
+    <button on:click={addRow_5}>Add Test</button>
+
+    <div style="margin-top: 30px"></div>
+    <button on:click={()=> step = 6}>Next</button>
+</section>
+
+
+
+<section class="hidden" class:active="{step === 6}">
+    <h2>HYPOTHESIS TO BE TESTED​</h2>
+    <h4>Value Hypothesis: Will customer see value in your offering and buy it​</h4>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>What Test Has been done​</th>
+                <th>Results</th>
+                <th>Passed/Failed​</th>
+                <th>Remarks​</th>
+            </tr>
+        </thead>
+        {#each tests2 as T}
+            <tbody>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+            </tbody>
+        {/each}
+    </table>
+
+    <div style="margin-top: 15px"></div>
+    <button on:click={addRow_6}>Add Test</button>
+
+    <div style="margin-top: 15px"></div>
+    <h4>Growth Hypothesis: Will you able to acquire customer in a reasonable cost​​</h4>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>What Test Has been done​</th>
+                <th>Results</th>
+                <th>Passed/Failed​</th>
+                <th>Remarks​</th>
+            </tr>
+        </thead>
+        {#each tests3 as T}
+            <tbody>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+            </tbody>
+        {/each}
+    </table>
+
+    <div style="margin-top: 15px"></div>
+    <button on:click={addRow_7}>Add Test</button>
+
+    <h4>Prove the model on smallest possible unit and then replicate it​</h4>
+
+
+    <div style="margin-top: 30px"></div>
+    <button on:click={()=> step = 7}>Next</button>
+
+
+</section>
+
+
+
+<section class="hidden" class:active="{step === 7}">
+    <h2>COMMERCIALIZATION SCORECARD</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Attribite</th>
+                <th>Score(1-10)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Product Availability​</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Localization​</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Pricing​​</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Sales Collaterals/Use Cases/ Case Studies​​</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Implementation Capabilities​</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Training to Sales Team​​</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Referability​​</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Certifications​​</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Demo readiness​​</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Product Documentation/Roadmap​​</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Support Teams (Mktg/Presales)​​</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Contracts readiness​​</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Billing/Collection Process​​</td>
+                <td><input type="text"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="margin-top: 30px"></div>
+    <button on:click={()=> step = 8}>Next</button>
+</section>
+
+
+<section class="hidden" class:active="{step === 8}">
+    <h2>DEFINE BRAND ARCHETYPE ​</h2>
+
+    <h4>I want my business to make people ___​</h4>
+    <textarea cols="60" rows="8"></textarea>
+
+    <h4>People relate to my business because it is ____​</h4>
+    <textarea cols="60" rows="8"></textarea>
+
+    <h4>My brand strongly associates with these features ____​</h4>
+    <textarea cols="60" rows="8"></textarea>
+
+    <h4>Does my brand motivate my audience?​​</h4>
+    <textarea cols="60" rows="8"></textarea>
+
+    <h4>What is the kind of connection they feel with my brand?​​</h4>
+    <textarea cols="60" rows="8"></textarea>
 </section>
 <!-- <pre><code>{JSON.stringify(TO_SAVE, null, 2)}</code></pre> -->
 
