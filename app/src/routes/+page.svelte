@@ -1,6 +1,6 @@
 <script>
 
-    let step = 8;
+    let step = 0;
 
 
     let comapnies = [];
