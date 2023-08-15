@@ -21,4 +21,7 @@ router.post('/companies', async(req,res)=>{
     }
 });
 
+
+// router.get('')
+
 module.exports = router;

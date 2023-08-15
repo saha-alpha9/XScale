@@ -490,6 +490,9 @@
 
     <h4>What is the kind of connection they feel with my brand?​​</h4>
     <textarea cols="60" rows="8"></textarea>
+
+    <div style="margin-top: 30px;"></div>
+    <button on:click={step = 9}></button>
 </section>
 <!-- <pre><code>{JSON.stringify(TO_SAVE, null, 2)}</code></pre> -->
 
