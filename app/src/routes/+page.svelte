@@ -494,6 +494,7 @@
 <!-- <pre><code>{JSON.stringify(TO_SAVE, null, 2)}</code></pre> -->
 
 
+
 <style>
     .hidden {
         display: none;
@@ -501,5 +502,60 @@
 
     .active {
         display: block !important;
+    }
+
+    section {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        padding: 20px;
+        width: 80%;
+    }
+
+    h2 {
+        color: #007bff;
+        margin-top: 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+    th, td {
+        border: 1px solid #e0e0e0;
+        padding: 12px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f5f5f5;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        cursor: pointer;
+        padding: 10px 20px;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    textarea {
+        resize: vertical;
     }
 </style>
