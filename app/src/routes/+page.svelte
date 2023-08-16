@@ -2,12 +2,6 @@
 
     let step = 0;
 
-
-    let comapnies = [];
-    let tests = [];
-    let tests2 = [];
-    let tests3 = [];
-
     const ATTRS = [
         "Brand/Trust",
         "Reliability",
@@ -54,6 +48,8 @@
         }
     });
     
+
+    let comapnies = [];
     function addCompany() {
 
         const count = comapnies.length;
@@ -74,6 +70,20 @@
     addCompany();
 
 
+    let industries = [];
+    function addIndustry() {
+        industries.push({
+            large: "",
+            medium: "",
+            small: "",
+        });
+        industries = industries;
+        console.log(industries);
+    }
+    addIndustry();
+
+
+    let tests = [];
     function addRow_5() {
 
         tests.push({
@@ -88,6 +98,7 @@
     addRow_5();
 
 
+    let tests2 = [];
     function addRow_6() {
         tests2.push({
             whattests_to_do: "",
@@ -101,6 +112,7 @@
     addRow_6();
 
 
+    let tests3 = [];
     function addRow_7() {
         tests3.push({
             whattests_to_do: "",
@@ -115,6 +127,8 @@
 
 </script>
 
+
+<!-- GOAL SETINGS -->
 <section class="hidden" class:active={step === 0}>
     <h2>GOAL SETTING</h2>
     <table border="1">
@@ -165,50 +179,78 @@
 </section>
 
 
-<section class="hidden" class:active={step === 1}>
+
+<!-- SEGMENTATION -->
+<section class="hidden" class:active="{step === 1}">
+    <h2>Segmentation</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Industry</th>
+                <th>Large(5 lack+)</th>
+                <th>Medium(1-5lack)</th>
+                <th>Small(~1 lack)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#each industries as I, i}
+                <tr>
+                    <td><input type="text" bind:value={I.name} /></td>
+                    <td><input type="color" bind:value={I.large} /></td>
+                    <td><input type="color" bind:value={I.medium} /></td>
+                    <td><input type="color" bind:value={I.small} /></td>
+                </tr>
+            {/each}
+        </tbody>
+    </table>
+
+    <div style="margin-top: 15px;"></div>
+    <button on:click={addIndustry}>Add Industry</button>
+
+    <div style="margin-top: 30px;"></div>
+    <button on:click={()=> step = 2}>Next</button>
+
+</section>
+
+<!-- DEFINE COMPETITOR  -->
+<section class="hidden" class:active={step === 2}>
     <h2>Competitor Data</h2>
     <table border="1">
-        <tr>
-            <th>Competitor Name</th>
-            <th>Country</th>
-            <th>Revenue</th>
-            <th>Funding</th>
-            <th>Customers</th>
-            <th>Incubated</th>
-        </tr>
-        {#each comapnies as C, i}
+        <thead>
+            <tr>
+                <th>Competitor Name</th>
+                <th>Country</th>
+                <th>Revenue</th>
+                <th>Funding</th>
+                <th>Customers</th>
+                <th>Incubated</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#each comapnies as C, i}
                 <tr>
-                    <td>
-                        <input type="text" bind:value={C.name} />
-                    </td>
-                    <td>
-                        <input type="text" bind:value={C.country} />
-                    </td>
-                    <td>
-                        <input type="text" bind:value={C.revenue} />
-                    </td>
-                    <td>
-                        <input type="text" bind:value={C.funding} />
-                    </td>
-                    <td>
-                        <input type="text" bind:value={C.customers} />
-                    </td>
-                    <td>
-                        <input type="text" bind:value={C.incubated} />
-                    </td>
+                    <td><input type="text" bind:value={C.name} /></td>
+                    <td><input type="text" bind:value={C.country} /></td>
+                    <td><input type="text" bind:value={C.revenue} /></td>
+                    <td><input type="text" bind:value={C.funding} /></td>
+                    <td><input type="text" bind:value={C.customers} /></td>
+                    <td><input type="text" bind:value={C.incubated} /></td>
                 </tr>
-        {/each}
+            {/each}
+        </tbody>
     </table>
 
     <div style="margin-top: 15px"></div>
     <button on:click={addCompany}>Add Comapny</button>
 
     <div style="margin-top: 30px"></div>
-    <button type="button" on:click={() => step = 2}>Next</button>
+    <button type="button" on:click={() => step = 3}>Next</button>
 </section>
 
 
-<section class="hidden" class:active={step === 2}>
+
+<!-- CUSTOMER VALUE MAP  -->
+<section class="hidden" class:active={step === 3}>
     <h2>CUSTOMER VALUE MAP</h2>
     <table border="1">
         <thead>
@@ -234,10 +276,42 @@
     </table>
 
     <div style="margin-top: 30px"></div>
-    <button on:click={() => step = 3}>Next</button>
+    <button on:click={() => step = 4}>Next</button>
 </section>
 
-<section class="hidden" class:active={step===3}>
+
+
+<!-- OVERLAY DRIVER ON SEGMENTATION -->
+<section class="hidden" class:active={step === 4}>
+    <h2>Overlay Value Driver On Segmentation​</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Industry</th>
+                <th>Large(5 lack+)</th>
+                <th>Medium(1-5lack)</th>
+                <th>Small(~1 lack)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#each industries as I, i}
+                <tr>
+                    <td><input type="text" bind:value={I.name} /></td>
+                    <td><input type="text" bind:value={I.large} /></td>
+                    <td><input type="text" bind:value={I.medium} /></td>
+                    <td><input type="text" bind:value={I.small} /></td>
+                </tr>
+            {/each}
+        </tbody>
+    </table>
+
+    <div style="margin-top: 30px"></div>
+    <button on:click={() => step = 5}>Next</button>
+</section>
+
+
+<!-- COMPETITIVE MAPPING -->
+<section class="hidden" class:active={step===5}>
     <h2>COMPETITIVE MAPPING</h2>
     <table border = "1">
         <thead>
@@ -263,11 +337,15 @@
     </table>
 
     <div style="margin-top: 30px"></div>
-    <button on:click={() => step = 4}>Next</button>
+    <button on:click={() => step = 6}>Next</button>
 </section>
 
 
-<section class="hidden" class:active={step === 4}>
+
+
+
+<!-- POSITIONING AND PRICING -->
+<section class="hidden" class:active={step === 6}>
     <h2>POSITIONING AND PRICING</h2>
     <table border="1">
         <thead>
@@ -297,12 +375,15 @@
 
 
     <div style="margin-top: 30px"></div>
-    <button on:click={()=> step = 5}>Next</button>
+    <button on:click={()=> step = 7}>Next</button>
 
 </section>
 
 
-<section class="hidden" class:active="{step === 5}">
+
+
+<!-- TESTS DONE -->
+<section class="hidden" class:active="{step === 7}">
     <h2>TEST THE SYSTEM</h2>
     <h4>Ask questions what has to be true for this to work​</h4>
     <h4>Make a list of conditions that has to be true​</h4>
@@ -321,10 +402,10 @@
         <tbody>
             {#each tests as T}
             <tr>
-                <td><input type="test"/></td>
-                <td><input type="test"/></td>
-                <td><input type="test"/></td>
-                <td><input type="test"/></td>
+                <td><input type="text"/></td>
+                <td><input type="text"/></td>
+                <td><input type="text"/></td>
+                <td><input type="text"/></td>
             </tr>
             {/each}
         </tbody>
@@ -334,12 +415,15 @@
     <button on:click={addRow_5}>Add Test</button>
 
     <div style="margin-top: 30px"></div>
-    <button on:click={()=> step = 6}>Next</button>
+    <button on:click={()=> step = 8}>Next</button>
 </section>
 
 
 
-<section class="hidden" class:active="{step === 6}">
+
+
+<!-- TESTS TO DO  -->
+<section class="hidden" class:active="{step === 8}">
     <h2>HYPOTHESIS TO BE TESTED​</h2>
     <h4>Value Hypothesis: Will customer see value in your offering and buy it​</h4>
     <table border="1">
@@ -396,14 +480,14 @@
 
 
     <div style="margin-top: 30px"></div>
-    <button on:click={()=> step = 7}>Next</button>
-
-
+    <button on:click={()=> step = 9}>Next</button>
 </section>
 
 
 
-<section class="hidden" class:active="{step === 7}">
+
+<!-- COMMERCIALIZATION SCORECARD -->
+<section class="hidden" class:active="{step === 9}">
     <h2>COMMERCIALIZATION SCORECARD</h2>
     <table>
         <thead>
@@ -469,11 +553,13 @@
     </table>
 
     <div style="margin-top: 30px"></div>
-    <button on:click={()=> step = 8}>Next</button>
+    <button on:click={()=> step = 10}>Next</button>
 </section>
 
 
-<section class="hidden" class:active="{step === 8}">
+
+<!-- DEFINE BRAND ARCHETYPE -->
+<section class="hidden" class:active="{step === 10}">
     <h2>DEFINE BRAND ARCHETYPE ​</h2>
 
     <h4>I want my business to make people ___​</h4>
@@ -492,7 +578,7 @@
     <textarea cols="60" rows="8"></textarea>
 
     <div style="margin-top: 30px;"></div>
-    <button on:click={step = 9}></button>
+    <button on:click={step = 11}>SUBMIT</button>
 </section>
 <!-- <pre><code>{JSON.stringify(TO_SAVE, null, 2)}</code></pre> -->
 
@@ -511,9 +597,9 @@
         background-color: #fff;
         border-radius: 8px;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-        margin: 20px auto;
+        margin: 40px auto;
         padding: 20px;
-        width: 80%;
+        width: 90%;
     }
 
     h2 {
@@ -538,7 +624,7 @@
     }
 
     input, textarea {
-        width: 100%;
+        width: 90%;
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 4px;

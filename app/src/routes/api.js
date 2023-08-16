@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Company = require('../models/company');
+const Company = require('./models/company');
 
 router.get('/companies', async(req,res)=>{
     try {
@@ -22,6 +22,5 @@ router.post('/companies', async(req,res)=>{
 });
 
 
-// router.get('')
 
 module.exports = router;
