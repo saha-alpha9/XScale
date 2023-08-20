@@ -1,6 +1,6 @@
 <script>
 
-    let step = 0;
+    let step = 11;
 
     const ATTRS = [
         "Brand/Trust",
@@ -83,6 +83,22 @@
     addIndustry();
 
 
+    let geography = [];
+    function addGeography() {
+        geography.push({
+            geography: "",
+            segment: "",
+            fieldSales: "",
+            onlineSales: "",
+            resellers: "",
+            gtmPlanner: "",
+        });
+        geography = geography;
+        console.log(geography);
+    }
+    addGeography();
+
+
     let tests = [];
     function addRow_5() {
 
@@ -127,6 +143,8 @@
 
 </script>
 
+
+<!-- GTM PLAN -->
 
 <!-- GOAL SETINGS -->
 <section class="hidden" class:active={step === 0}>
@@ -580,6 +598,120 @@
     <div style="margin-top: 30px;"></div>
     <button on:click={step = 11}>SUBMIT</button>
 </section>
+
+
+
+
+
+
+<!-- SALES OPERATING PLAN -->
+<!-- Sales Channel Selection -->
+<section class="hidden" class:active={step === 11}>
+    <h2>Sales Channel Selection</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Geography</th>
+                <th>Segment</th>
+                <th>Direct Field Sales</th>
+                <th>Direct Online Sales</th>
+                <th>Reseller/Distributers</th>
+                <th>GTM Partner</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#each geography as G, i}
+                <tr>
+                    <td><input type="text" bind:value={G.geography} /></td>
+                    <td>
+                        <select name="" id={`segment_${G.id}`} bind:value={G.segment}>
+                            <option value="Large">Large</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Small">Small</option>
+                        </select>
+                    </td>
+                    <td><input type="text" bind:value={G.fieldSales} /></td>
+                    <td><input type="text" bind:value={G.onlineSales} /></td>
+                    <td><input type="text" bind:value={G.resellers} /></td>
+                    <td><input type="text" bind:value={G.gtmPlanner} /></td>
+                </tr>
+            {/each}
+        </tbody>
+    </table>
+
+    <div style="margin-top: 15px"></div>
+    <button on:click={addGeography}>Add Geography</button>
+
+    <div style="margin-top: 30px"></div>
+    <button type="button" on:click={() => step = 12}>Next</button>
+</section>
+
+
+<!-- DEMAND PLANNING​ -->
+<section class="hidden" class:active={step === 12}>
+    <h2>Demand Planning</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Inputs​</th>
+                <th>Values</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Revenue Target​</td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Avg Time to close a deal(in months​​)</td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Avg Deal size​​</td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Deals that can be closed by a rep/year Or Deals they can work simultaneousl​​</td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Conversion Rate Leads to Closure​</td>
+                <td><input type="number"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Calculated ​​</th>
+                <th>Values</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Deals to be closed to achieve the target​​</td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Leads to be generated​​</td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Reps required to achieve the target​​​</td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Support teams required(Pre-sales, Mktg)​​</td>
+                <td><input type="number"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="margin-top: 30px"></div>
+    <button on:click={()=> step = 13}></button>
+</section>
+
 <!-- <pre><code>{JSON.stringify(TO_SAVE, null, 2)}</code></pre> -->
 
 
