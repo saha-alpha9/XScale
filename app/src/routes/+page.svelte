@@ -1,6 +1,7 @@
 <script>
 
-    let step = 11;
+    let step = 0;
+    
 
     const ATTRS = [
         "Brand/Trust",
@@ -192,8 +193,11 @@
         </tbody>
     </table>
 
-    <div style="margin-top: 30px"></div>
-    <button type="button" on:click={()=> step = 1}>Next</button>
+    <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+        <button on:click={() => step = step - 1} style="margin-left: 10px; margin-right: auto;">Back</button>
+        <button on:click={() => step = step + 1} style="margin-left: auto; margin-right: 10px;">Next</button>
+    </div>
+
 </section>
 
 
@@ -214,9 +218,21 @@
             {#each industries as I, i}
                 <tr>
                     <td><input type="text" bind:value={I.name} /></td>
-                    <td><input type="color" bind:value={I.large} /></td>
-                    <td><input type="color" bind:value={I.medium} /></td>
-                    <td><input type="color" bind:value={I.small} /></td>
+                    <td>
+                        <label>
+                            <input type="radio" bind:group={I.size} value="large" /> Large
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="radio" bind:group={I.size} value="medium" /> Medium
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="radio" bind:group={I.size} value="small" /> Small
+                        </label>
+                    </td>
                 </tr>
             {/each}
         </tbody>
@@ -225,8 +241,10 @@
     <div style="margin-top: 15px;"></div>
     <button on:click={addIndustry}>Add Industry</button>
 
-    <div style="margin-top: 30px;"></div>
-    <button on:click={()=> step = 2}>Next</button>
+    <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+        <button on:click={() => step = step - 1} style="margin-left: 10px; margin-right: auto;">Back</button>
+        <button on:click={() => step = step + 1} style="margin-left: auto; margin-right: 10px;">Next</button>
+    </div>
 
 </section>
 
@@ -261,8 +279,10 @@
     <div style="margin-top: 15px"></div>
     <button on:click={addCompany}>Add Comapny</button>
 
-    <div style="margin-top: 30px"></div>
-    <button type="button" on:click={() => step = 3}>Next</button>
+    <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+        <button on:click={() => step = step - 1} style="margin-left: 10px; margin-right: auto;">Back</button>
+        <button on:click={() => step = step + 1} style="margin-left: auto; margin-right: 10px;">Next</button>
+    </div>
 </section>
 
 
@@ -293,8 +313,10 @@
         </tbody>
     </table>
 
-    <div style="margin-top: 30px"></div>
-    <button on:click={() => step = 4}>Next</button>
+    <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+        <button on:click={() => step = step - 1} style="margin-left: 10px; margin-right: auto;">Back</button>
+        <button on:click={() => step = step + 1} style="margin-left: auto; margin-right: 10px;">Next</button>
+    </div>
 </section>
 
 
@@ -323,8 +345,10 @@
         </tbody>
     </table>
 
-    <div style="margin-top: 30px"></div>
-    <button on:click={() => step = 5}>Next</button>
+    <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+        <button on:click={() => step = step - 1} style="margin-left: 10px; margin-right: auto;">Back</button>
+        <button on:click={() => step = step + 1} style="margin-left: auto; margin-right: 10px;">Next</button>
+    </div>
 </section>
 
 
@@ -354,8 +378,10 @@
         </tbody>
     </table>
 
-    <div style="margin-top: 30px"></div>
-    <button on:click={() => step = 6}>Next</button>
+    <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+        <button on:click={() => step = step - 1} style="margin-left: 10px; margin-right: auto;">Back</button>
+        <button on:click={() => step = step + 1} style="margin-left: auto; margin-right: 10px;">Next</button>
+    </div>
 </section>
 
 
@@ -392,8 +418,10 @@
     <textarea cols="60" rows="5"></textarea>
 
 
-    <div style="margin-top: 30px"></div>
-    <button on:click={()=> step = 7}>Next</button>
+    <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+        <button on:click={() => step = step - 1} style="margin-left: 10px; margin-right: auto;">Back</button>
+        <button on:click={() => step = step + 1} style="margin-left: auto; margin-right: 10px;">Next</button>
+    </div>
 
 </section>
 
@@ -432,8 +460,10 @@
     <div style="margin-top: 15px"></div>
     <button on:click={addRow_5}>Add Test</button>
 
-    <div style="margin-top: 30px"></div>
-    <button on:click={()=> step = 8}>Next</button>
+    <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+        <button on:click={() => step = step - 1} style="margin-left: 10px; margin-right: auto;">Back</button>
+        <button on:click={() => step = step + 1} style="margin-left: auto; margin-right: 10px;">Next</button>
+    </div>
 </section>
 
 
@@ -494,11 +524,13 @@
     <div style="margin-top: 15px"></div>
     <button on:click={addRow_7}>Add Test</button>
 
-    <h4>Prove the model on smallest possible unit and then replicate it​</h4>
+    <h5>Prove the model on smallest possible unit and then replicate it​</h5>
 
 
-    <div style="margin-top: 30px"></div>
-    <button on:click={()=> step = 9}>Next</button>
+    <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+        <button on:click={() => step = step - 1} style="margin-left: 10px; margin-right: auto;">Back</button>
+        <button on:click={() => step = step + 1} style="margin-left: auto; margin-right: 10px;">Next</button>
+    </div>
 </section>
 
 
@@ -570,8 +602,10 @@
         </tbody>
     </table>
 
-    <div style="margin-top: 30px"></div>
-    <button on:click={()=> step = 10}>Next</button>
+    <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+        <button on:click={() => step = step - 1} style="margin-left: 10px; margin-right: auto;">Back</button>
+        <button on:click={() => step = step + 1} style="margin-left: auto; margin-right: 10px;">Next</button>
+    </div>
 </section>
 
 
@@ -595,8 +629,10 @@
     <h4>What is the kind of connection they feel with my brand?​​</h4>
     <textarea cols="60" rows="8"></textarea>
 
-    <div style="margin-top: 30px;"></div>
-    <button on:click={step = 11}>SUBMIT</button>
+    <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+        <button on:click={() => step = step - 1} style="margin-left: 10px; margin-right: auto;">Back</button>
+        <button on:click={() => step = step + 1} style="margin-left: auto; margin-right: 10px;">Next</button>
+    </div>
 </section>
 
 
@@ -642,8 +678,10 @@
     <div style="margin-top: 15px"></div>
     <button on:click={addGeography}>Add Geography</button>
 
-    <div style="margin-top: 30px"></div>
-    <button type="button" on:click={() => step = 12}>Next</button>
+    <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+        <button on:click={() => step = step - 1} style="margin-left: 10px; margin-right: auto;">Back</button>
+        <button on:click={() => step = step + 1} style="margin-left: auto; margin-right: 10px;">Next</button>
+    </div>
 </section>
 
 
@@ -708,8 +746,10 @@
         </tbody>
     </table>
 
-    <div style="margin-top: 30px"></div>
-    <button on:click={()=> step = 13}></button>
+    <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+        <button on:click={() => step = step - 1} style="margin-left: 10px; margin-right: auto;">Back</button>
+        <button on:click={() => window.location.href = '/'}>Submit</button>
+    </div>
 </section>
 
 <!-- <pre><code>{JSON.stringify(TO_SAVE, null, 2)}</code></pre> -->
@@ -726,7 +766,7 @@
     }
 
     section {
-        background-color: #fff;
+        background-radio: #fff;
         border-radius: 8px;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
         margin: 40px auto;
@@ -735,7 +775,7 @@
     }
 
     h2 {
-        color: #007bff;
+        radio: #007bff;
         margin-top: 0;
     }
 
@@ -752,7 +792,7 @@
     }
 
     th {
-        background-color: #f5f5f5;
+        background-radio: #f5f5f5;
     }
 
     input, textarea {
@@ -763,17 +803,17 @@
     }
 
     button {
-        background-color: #007bff;
+        background-radio: #007bff;
         border: none;
         border-radius: 4px;
-        color: #fff;
+        radio: #fff;
         cursor: pointer;
         padding: 10px 20px;
-        transition: background-color 0.3s;
+        transition: background-radio 0.3s;
     }
 
     button:hover {
-        background-color: #0056b3;
+        background-radio: #0056b3;
     }
 
     textarea {
